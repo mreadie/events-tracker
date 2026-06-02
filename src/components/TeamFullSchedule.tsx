@@ -3,9 +3,10 @@ import { TEAMS, getTeamSchedule, type GameEvent } from '../lib/sports-api'
 
 interface TeamFullScheduleProps {
   teamKey: string
+  seasonStartMonth?: string
 }
 
-export default function TeamFullSchedule({ teamKey }: TeamFullScheduleProps) {
+export default function TeamFullSchedule({ teamKey, seasonStartMonth }: TeamFullScheduleProps) {
   const [completedGames, setCompletedGames] = useState<GameEvent[]>([])
   const [upcomingGames, setUpcomingGames] = useState<GameEvent[]>([])
   const [loading, setLoading] = useState(true)
@@ -143,6 +144,13 @@ export default function TeamFullSchedule({ teamKey }: TeamFullScheduleProps) {
             ))}
           </div>
         </div>
+      )}
+
+      {/* Next Season Message - only when no upcoming games */}
+      {upcomingGames.length === 0 && !loading && seasonStartMonth && (
+        <p className="text-gray-400 text-sm italic">
+          There's always next season, and next season starts in {seasonStartMonth}!
+        </p>
       )}
 
       {/* Season Record */}
