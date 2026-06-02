@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Northern Colorado Owlz - Colorado Sports Events Tracker">
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <nav class="text-sm text-text-secondary mb-4">
+      <a href="/events-tracker/sports/baseball" class="hover:text-secondary">Baseball</a>
+      <span class="mx-2">/</span>
+      <span class="text-accent">Northern Colorado Owlz</span>
+    </nav>
+    <h1 class="text-2xl md:text-3xl font-bold text-accent mb-1">Northern Colorado Owlz</h1>
+    <p class="text-text-secondary text-sm mb-6">Pioneer League (Independent) • Jackson Field, Windsor CO</p>
+
+    <div class="bg-[#1a2d4a]/60 backdrop-blur-sm border border-white/10 rounded-xl p-6 mb-6">
+      <p class="text-gray-300 text-sm mb-4">
+        The Northern Colorado Owlz are an independent minor league baseball team in the Pioneer League, based in Windsor, Colorado. They play their home games at Jackson Field.
+      </p>
+      <div class="grid grid-cols-2 gap-4 text-sm">
+        <div>
+          <span class="text-gray-400 font-medium">League:</span>
+          <span class="text-white ml-2">Pioneer League</span>
+        </div>
+        <div>
+          <span class="text-gray-400 font-medium">Level:</span>
+          <span class="text-white ml-2">Independent</span>
+        </div>
+        <div>
+          <span class="text-gray-400 font-medium">Venue:</span>
+          <span class="text-white ml-2">Jackson Field</span>
+        </div>
+        <div>
+          <span class="text-gray-400 font-medium">Season:</span>
+          <span class="text-white ml-2">May – September</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-gray-400 text-sm italic">
+      Live schedule data is not available for the Pioneer League. Visit the <a href="https://www.milb.com/northern-colorado" class="text-secondary hover:underline" target="_blank" rel="noopener">Owlz official site</a> for the latest schedule.
+    </p>
+
+    <p class="text-text-secondary text-sm italic mt-6">There's always next season, and next season starts in May!</p>
+  </section>
+</Layout>
