@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TeamCard from '../components/TeamCard.tsx';
 ---
 
 <Layout title="Colorado Sports Events Tracker">
@@ -62,38 +63,10 @@ import Layout from '../layouts/Layout.astro';
       <div>
         <h2 class="text-lg font-bold text-accent mb-3 drop-shadow">Upcoming Games</h2>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <div class="bg-surface-card/40 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-secondary/40 transition-all">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-bold bg-secondary/20 text-secondary px-2 py-0.5 rounded">NFL</span>
-              <span class="text-text-secondary text-[10px]">TBD</span>
-            </div>
-            <h3 class="text-accent font-bold text-sm">Denver Broncos</h3>
-            <p class="text-text-secondary text-xs mt-1">Next game details coming soon</p>
-          </div>
-          <div class="bg-surface-card/40 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-secondary/40 transition-all">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-bold bg-secondary/20 text-secondary px-2 py-0.5 rounded">NBA</span>
-              <span class="text-text-secondary text-[10px]">TBD</span>
-            </div>
-            <h3 class="text-accent font-bold text-sm">Denver Nuggets</h3>
-            <p class="text-text-secondary text-xs mt-1">Next game details coming soon</p>
-          </div>
-          <div class="bg-surface-card/40 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-secondary/40 transition-all">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-bold bg-secondary/20 text-secondary px-2 py-0.5 rounded">NHL</span>
-              <span class="text-text-secondary text-[10px]">TBD</span>
-            </div>
-            <h3 class="text-accent font-bold text-sm">Colorado Avalanche</h3>
-            <p class="text-text-secondary text-xs mt-1">Next game details coming soon</p>
-          </div>
-          <div class="bg-surface-card/40 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-secondary/40 transition-all">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-bold bg-secondary/20 text-secondary px-2 py-0.5 rounded">MLB</span>
-              <span class="text-text-secondary text-[10px]">TBD</span>
-            </div>
-            <h3 class="text-accent font-bold text-sm">Colorado Rockies</h3>
-            <p class="text-text-secondary text-xs mt-1">Next game details coming soon</p>
-          </div>
+          <TeamCard teamKey="broncos" client:load />
+          <TeamCard teamKey="nuggets" client:load />
+          <TeamCard teamKey="avalanche" client:load />
+          <TeamCard teamKey="rockies" client:load />
         </div>
       </div>
     </div>

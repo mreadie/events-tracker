@@ -6,7 +6,7 @@ interface TeamCardProps {
 }
 
 function SkeletonLine({ width = 'w-full' }: { width?: string }) {
-  return <div className={`h-4 bg-gray-200 rounded animate-pulse ${width}`} />
+  return <div className={`h-3 bg-white/10 rounded animate-pulse ${width}`} />
 }
 
 export default function TeamCard({ teamKey }: TeamCardProps) {
@@ -48,8 +48,8 @@ export default function TeamCard({ teamKey }: TeamCardProps) {
 
   if (!team) {
     return (
-      <div className="rounded-xl border border-red-200 bg-red-50 p-6">
-        <p className="text-red-600 text-sm">Unknown team: {teamKey}</p>
+      <div className="rounded-xl border border-red-400/30 bg-red-900/20 p-4">
+        <p className="text-red-300 text-sm">Unknown team: {teamKey}</p>
       </div>
     )
   }
@@ -65,70 +65,67 @@ export default function TeamCard({ teamKey }: TeamCardProps) {
     })
   }
 
-  function getSportIcon(sport: string): string {
-    switch (sport) {
-      case 'football': return '🏈'
-      case 'basketball': return '🏀'
-      case 'hockey': return '🏒'
-      case 'baseball': return '⚾'
-      case 'soccer': return '⚽'
-      default: return '🏆'
+  function getLeagueLabel(league: string): string {
+    switch (league) {
+      case 'nfl': return 'NFL'
+      case 'nba': return 'NBA'
+      case 'nhl': return 'NHL'
+      case 'mlb': return 'MLB'
+      case 'usa.1': return 'MLS'
+      case 'college-football': return 'NCAAF'
+      case 'mens-college-basketball': return 'NCAAB'
+      default: return league.toUpperCase()
     }
   }
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-6">
+    <div className="rounded-xl border border-white/10 bg-[#1a2d4a]/40 backdrop-blur-md p-4 hover:border-[#FB4F14]/40 transition-all">
       {/* Header */}
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-2xl">
-          {getSportIcon(team.sport)}
-        </div>
-        <div>
-          <h3 className="font-bold text-lg text-gray-900">{team.name}</h3>
-          <p className="text-sm text-gray-500 capitalize">{team.league.replace('-', ' ').replace('usa.1', 'MLS')}</p>
-        </div>
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-bold text-sm text-white">{team.name}</h3>
+        <span className="text-[10px] font-bold bg-[#FB4F14]/20 text-[#FB4F14] px-2 py-0.5 rounded">
+          {getLeagueLabel(team.league)}
+        </span>
       </div>
 
       {loading ? (
-        <div className="space-y-3">
+        <div className="space-y-2">
           <SkeletonLine width="w-3/4" />
           <SkeletonLine width="w-full" />
           <SkeletonLine width="w-2/3" />
-          <SkeletonLine width="w-full" />
         </div>
       ) : error ? (
-        <p className="text-red-500 text-sm">{error}</p>
+        <p className="text-red-400 text-xs">{error}</p>
       ) : (
         <>
           {/* Latest Score */}
           {latestScore && (
-            <div className="mb-4 p-3 rounded-lg bg-gray-50 border border-gray-100">
-              <p className="text-xs font-medium text-gray-500 uppercase mb-1">Latest Result</p>
-              <p className="text-sm font-semibold text-gray-800">
-                {latestScore.shortName || latestScore.name}
-              </p>
-              {(latestScore.homeScore !== undefined && latestScore.awayScore !== undefined) && (
-                <p className="text-sm text-gray-600 mt-1">
+            <div className="mb-3 p-2 rounded-lg bg-white/5 border border-white/5">
+              <p className="text-[10px] font-medium text-gray-400 uppercase mb-1">Latest</p>
+              {(latestScore.homeScore !== undefined && latestScore.awayScore !== undefined) ? (
+                <p className="text-xs font-semibold text-white">
                   {latestScore.homeTeam} {latestScore.homeScore} - {latestScore.awayScore} {latestScore.awayTeam}
                 </p>
+              ) : (
+                <p className="text-xs text-gray-300">{latestScore.shortName || latestScore.name}</p>
               )}
-              <p className="text-xs text-gray-400 mt-1">{latestScore.statusDetail}</p>
+              <p className="text-[10px] text-gray-500 mt-0.5">{latestScore.statusDetail}</p>
             </div>
           )}
 
           {/* Upcoming Games */}
           <div>
-            <p className="text-xs font-medium text-gray-500 uppercase mb-2">Upcoming Games</p>
+            <p className="text-[10px] font-medium text-gray-400 uppercase mb-1.5">Next Games</p>
             {nextGames.length === 0 ? (
-              <p className="text-sm text-gray-400 italic">No upcoming games scheduled</p>
+              <p className="text-xs text-gray-500 italic">No upcoming games scheduled</p>
             ) : (
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 {nextGames.map((game) => (
-                  <li key={game.id} className="flex justify-between items-center text-sm">
-                    <span className="text-gray-700">
+                  <li key={game.id} className="flex justify-between items-center text-xs">
+                    <span className="text-gray-200">
                       {game.isHome ? 'vs' : '@'} {game.opponent}
                     </span>
-                    <span className="text-gray-400 text-xs">{formatDate(game.date)}</span>
+                    <span className="text-gray-500 text-[10px]">{formatDate(game.date)}</span>
                   </li>
                 ))}
               </ul>
