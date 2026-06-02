@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SportSchedule from '../../components/SportSchedule.tsx';
 
 const teams = [
   {
@@ -90,6 +91,12 @@ const teams = [
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- Live Schedule -->
+    <div class="mt-10">
+      <h2 class="text-xl font-bold text-accent mb-2 border-b border-secondary/20 pb-2">Live Schedule</h2>
+      <SportSchedule teamKeys={["broncos", "cu_football", "csu_football", "airforce_football"]} client:load />
     </div>
   </section>
 </Layout>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TeamCard from '../components/TeamCard.tsx';
+import ActiveSchedule from '../components/ActiveSchedule.tsx';
 ---
 
 <Layout title="Colorado Sports Events Tracker">
@@ -59,15 +59,9 @@ import TeamCard from '../components/TeamCard.tsx';
         </div>
       </div>
 
-      <!-- Upcoming Games -->
+      <!-- Active Seasons -->
       <div>
-        <h2 class="text-lg font-bold text-accent mb-3 drop-shadow">Upcoming Games</h2>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-          <TeamCard teamKey="broncos" client:load />
-          <TeamCard teamKey="nuggets" client:load />
-          <TeamCard teamKey="avalanche" client:load />
-          <TeamCard teamKey="rockies" client:load />
-        </div>
+        <ActiveSchedule client:load />
       </div>
     </div>
   </div>
