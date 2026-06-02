@@ -37,8 +37,15 @@ export default function SportSchedule({ teamKeys }: SportScheduleProps) {
           })
         )
 
-        // Only show teams with upcoming games (active/postseason)
-        const active = results.filter((t): t is ActiveTeam => t !== null && t.nextGames.length > 0)
+        // Only show teams with upcoming games within the next month (active/postseason)
+        const oneMonthFromNow = new Date()
+        oneMonthFromNow.setMonth(oneMonthFromNow.getMonth() + 1)
+
+        const active = results.filter((t): t is ActiveTeam => {
+          if (t === null || t.nextGames.length === 0) return false
+          const nextGameDate = new Date(t.nextGames[0].date)
+          return nextGameDate <= oneMonthFromNow
+        })
         setActiveTeams(active)
       } catch (err) {
         console.error('Error fetching teams:', err)

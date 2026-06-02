@@ -32,7 +32,15 @@ export default function ActiveSchedule() {
         )
 
         // Filter to only teams with upcoming games (active/postseason)
-        const active = results.filter(t => t.nextGames.length > 0)
+        // Exclude teams whose next game is more than a month away
+        const oneMonthFromNow = new Date()
+        oneMonthFromNow.setMonth(oneMonthFromNow.getMonth() + 1)
+
+        const active = results.filter(t => {
+          if (t.nextGames.length === 0) return false
+          const nextGameDate = new Date(t.nextGames[0].date)
+          return nextGameDate <= oneMonthFromNow
+        })
         setActiveTeams(active)
       } catch (err) {
         console.error('Error fetching active teams:', err)
