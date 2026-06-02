@@ -1,14 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import RedRocksFullSchedule from '../components/RedRocksFullSchedule.tsx';
+import MusicPage from '../components/MusicPage.tsx';
 ---
 
-<Layout title="Music - Red Rocks Concerts">
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
+<Layout title="Music - Denver Concert Venues">
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
     <div class="mb-8">
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-3">🎵 Red Rocks Concerts</h1>
-      <p class="text-text-secondary text-sm sm:text-lg">Upcoming concerts at Red Rocks Amphitheatre, Morrison, Colorado.</p>
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-3">🎵 Denver Music & Concerts</h1>
+      <p class="text-text-secondary text-sm sm:text-lg">Upcoming shows at Colorado's top concert venues — from intimate clubs to massive stadiums.</p>
     </div>
-    <RedRocksFullSchedule client:load />
+    <MusicPage client:load />
   </section>
 </Layout>
