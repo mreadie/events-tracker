@@ -10,11 +10,13 @@ import TeamFullSchedule from '../../components/TeamFullSchedule.tsx';
       <span class="mx-2">/</span>
       <span class="text-accent">Colorado College Tigers</span>
     </nav>
-    <h1 class="text-2xl md:text-3xl font-bold text-accent mb-1">Colorado College Tigers Hockey</h1>
+    <div class="flex items-center gap-3 mb-1">
+      <h1 class="text-2xl md:text-3xl font-bold text-accent">Colorado College Tigers Hockey</h1>
+      <a href="https://cctigers.com/sports/mice" target="_blank" rel="noopener">
+        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2144.png" alt="Colorado College Tigers logo" class="w-10 h-10 object-contain hover:scale-110 transition-transform" />
+      </a>
+    </div>
     <p class="text-text-secondary text-sm mb-6">NCHC (NCAA D1) • Ed Robson Arena</p>
-    <a href="https://cctigers.com/sports/mice" target="_blank" rel="noopener" class="inline-block mb-6">
-      <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2144.png" alt="Colorado College Tigers logo" class="w-16 h-16 object-contain hover:scale-110 transition-transform" />
-    </a>
     <TeamFullSchedule teamKey="cc_hockey" seasonStartMonth="October" client:load />
   </section>
 </Layout>

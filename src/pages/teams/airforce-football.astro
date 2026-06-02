@@ -10,11 +10,13 @@ import TeamFullSchedule from '../../components/TeamFullSchedule.tsx';
       <span class="mx-2">/</span>
       <span class="text-accent">Air Force Falcons Football</span>
     </nav>
-    <h1 class="text-2xl md:text-3xl font-bold text-accent mb-1">Air Force Falcons Football</h1>
+    <div class="flex items-center gap-3 mb-1">
+      <h1 class="text-2xl md:text-3xl font-bold text-accent">Air Force Falcons Football</h1>
+      <a href="https://goairforcefalcons.com/sports/football" target="_blank" rel="noopener">
+        <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" alt="Air Force Falcons logo" class="w-10 h-10 object-contain hover:scale-110 transition-transform" />
+      </a>
+    </div>
     <p class="text-text-secondary text-sm mb-6">Mountain West (NCAAF) • Falcon Stadium</p>
-    <a href="https://goairforcefalcons.com/sports/football" target="_blank" rel="noopener" class="inline-block mb-6">
-      <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" alt="Air Force Falcons logo" class="w-16 h-16 object-contain hover:scale-110 transition-transform" />
-    </a>
     <TeamFullSchedule teamKey="airforce_football" seasonStartMonth="August" client:load />
   </section>
 </Layout>
