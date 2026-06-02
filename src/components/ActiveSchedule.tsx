@@ -12,6 +12,24 @@ export default function ActiveSchedule() {
   const [activeTeams, setActiveTeams] = useState<ActiveTeam[]>([])
   const [loading, setLoading] = useState(true)
 
+  const teamPages: Record<string, string> = {
+    broncos: '/events-tracker/teams/broncos',
+    nuggets: '/events-tracker/teams/nuggets',
+    avalanche: '/events-tracker/teams/avalanche',
+    rockies: '/events-tracker/teams/rockies',
+    rapids: '/events-tracker/teams/rapids',
+    mammoth: '/events-tracker/teams/mammoth',
+    cu_football: '/events-tracker/teams/cu-football',
+    cu_basketball: '/events-tracker/teams/cu-basketball',
+    csu_football: '/events-tracker/teams/csu-football',
+    csu_basketball: '/events-tracker/teams/csu-basketball',
+    airforce_football: '/events-tracker/teams/airforce-football',
+    airforce_basketball: '/events-tracker/teams/airforce-basketball',
+    airforce_hockey: '/events-tracker/teams/airforce-hockey',
+    cc_hockey: '/events-tracker/teams/cc-hockey',
+    du_hockey: '/events-tracker/teams/du-hockey',
+  }
+
   useEffect(() => {
     async function fetchAllTeams() {
       try {
@@ -116,7 +134,11 @@ export default function ActiveSchedule() {
           <div key={key} className="rounded-xl border border-white/10 bg-[#1a2d4a]/40 backdrop-blur-md p-4 hover:border-[#FB4F14]/40 transition-all">
             {/* Header */}
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-bold text-xs text-white truncate mr-2">{config.name}</h3>
+              {teamPages[key] ? (
+                <a href={teamPages[key]} className="font-bold text-xs text-white truncate mr-2 hover:text-[#FB4F14] transition-colors">{config.name}</a>
+              ) : (
+                <h3 className="font-bold text-xs text-white truncate mr-2">{config.name}</h3>
+              )}
               <span className="text-[9px] font-bold bg-[#FB4F14]/20 text-[#FB4F14] px-1.5 py-0.5 rounded shrink-0">
                 {getLeagueLabel(config.league)}
               </span>
