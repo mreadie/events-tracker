@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <!-- Background circle -->
   <circle cx="64" cy="64" r="62" fill="#002868"/>
-  <!-- White C shape -->
+  <!-- Red C shape -->
   <path d="M 64 20 A 44 44 0 1 0 64 108 A 44 44 0 0 0 100 84 L 76 84 A 24 24 0 0 1 64 88 A 24 24 0 1 1 64 40 A 24 24 0 0 1 76 44 L 100 44 A 44 44 0 0 0 64 20 Z" fill="#C8102E"/>
-  <!-- Gold center circle -->
-  <circle cx="64" cy="64" r="14" fill="#FFD700"/>
+  <!-- Gold center circle - radius matches inner C cutout so it touches red -->
+  <circle cx="64" cy="64" r="24" fill="#FFD700"/>
 </svg>
