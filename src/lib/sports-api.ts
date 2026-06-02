@@ -36,6 +36,7 @@ export const TEAMS: Record<string, TeamConfig> = {
   airforce_hockey: { sport: 'hockey', league: 'mens-college-hockey', id: '2005', name: 'Air Force Falcons Hockey' },
   cc_hockey: { sport: 'hockey', league: 'mens-college-hockey', id: '2144', name: 'Colorado College Tigers Hockey' },
   du_hockey: { sport: 'hockey', league: 'mens-college-hockey', id: '2172', name: 'Denver Pioneers Hockey' },
+  mammoth: { sport: 'lacrosse', league: 'nll', id: '125422', name: 'Colorado Mammoth' },
 }
 
 const BASE_URL = 'https://site.api.espn.com/apis/site/v2/sports'
