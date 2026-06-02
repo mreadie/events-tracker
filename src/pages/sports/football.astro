@@ -10,7 +10,8 @@ const teams = [
     venue: "Empower Field at Mile High",
     color: "#FB4F14",
     description: "3-time Super Bowl champions. Colorado's most popular professional sports franchise.",
-    season: "September – February"
+    season: "September – February",
+    teamPage: "/events-tracker/teams/broncos"
   },
   {
     name: "CU Buffaloes Football",
@@ -19,7 +20,8 @@ const teams = [
     venue: "Folsom Field",
     color: "#CFB87C",
     description: "University of Colorado Boulder football. 1990 National Champions. Coach Prime era.",
-    season: "August – January"
+    season: "August – January",
+    teamPage: "/events-tracker/teams/cu-football"
   },
   {
     name: "CSU Rams Football",
@@ -28,7 +30,8 @@ const teams = [
     venue: "Canvas Stadium",
     color: "#1E4D2B",
     description: "Colorado State University's FBS football program in the Mountain West Conference.",
-    season: "August – December"
+    season: "August – December",
+    teamPage: "/events-tracker/teams/csu-football"
   },
   {
     name: "Air Force Falcons Football",
@@ -37,7 +40,8 @@ const teams = [
     venue: "Falcon Stadium",
     color: "#003087",
     description: "US Air Force Academy football. Known for their triple-option offense and Commander-in-Chief's Trophy rivalry.",
-    season: "August – December"
+    season: "August – December",
+    teamPage: "/events-tracker/teams/airforce-football"
   }
 ];
 ---
@@ -60,7 +64,7 @@ const teams = [
           <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
-              <h3 class="text-xl font-bold text-accent">{team.name}</h3>
+              <a href={team.teamPage}><h3 class="text-xl font-bold text-accent hover:text-secondary hover:underline transition-colors">{team.name}</h3></a>
               <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">{team.league}</span>
             </div>
             <p class="text-text-secondary text-sm mb-4">{team.description}</p>
@@ -81,7 +85,7 @@ const teams = [
           <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
-              <h3 class="text-lg font-bold text-accent">{team.name}</h3>
+              <a href={team.teamPage}><h3 class="text-lg font-bold text-accent hover:text-secondary hover:underline transition-colors">{team.name}</h3></a>
               <span class="text-xs font-semibold bg-surface-light text-text-secondary px-2 py-1 rounded">{team.league}</span>
             </div>
             <p class="text-text-secondary text-sm mb-3">{team.description}</p>

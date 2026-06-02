@@ -42,7 +42,7 @@ const teams = [
           <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
-              <h3 class="text-xl font-bold text-accent">{team.name}</h3>
+              <a href="/events-tracker/teams/rockies"><h3 class="text-xl font-bold text-accent hover:text-secondary hover:underline transition-colors">{team.name}</h3></a>
               <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">{team.league}</span>
             </div>
             <p class="text-text-secondary text-sm mb-4">{team.description}</p>

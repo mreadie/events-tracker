@@ -10,7 +10,8 @@ const teams = [
     venue: "Empower Field at Mile High",
     color: "#FB4F14",
     description: "Denver's NFL franchise and 3-time Super Bowl champions.",
-    sportLink: "/events-tracker/sports/football"
+    sportLink: "/events-tracker/sports/football",
+    teamPage: "/events-tracker/teams/broncos"
   },
   {
     name: "Denver Nuggets",
@@ -19,7 +20,8 @@ const teams = [
     venue: "Ball Arena",
     color: "#0E2240",
     description: "Denver's NBA team and 2023 NBA Champions.",
-    sportLink: "/events-tracker/sports/basketball"
+    sportLink: "/events-tracker/sports/basketball",
+    teamPage: "/events-tracker/teams/nuggets"
   },
   {
     name: "Colorado Avalanche",
@@ -28,7 +30,8 @@ const teams = [
     venue: "Ball Arena",
     color: "#6F263D",
     description: "Colorado's NHL team and 3-time Stanley Cup champions.",
-    sportLink: "/events-tracker/sports/hockey"
+    sportLink: "/events-tracker/sports/hockey",
+    teamPage: "/events-tracker/teams/avalanche"
   },
   {
     name: "Colorado Rockies",
@@ -37,7 +40,8 @@ const teams = [
     venue: "Coors Field",
     color: "#333366",
     description: "Colorado's MLB team playing at the iconic Coors Field.",
-    sportLink: "/events-tracker/sports/baseball"
+    sportLink: "/events-tracker/sports/baseball",
+    teamPage: "/events-tracker/teams/rockies"
   }
 ];
 ---
@@ -56,7 +60,7 @@ const teams = [
           <div class="p-6">
             <div class="flex items-start justify-between mb-4">
               <div>
-                <h2 class="text-xl font-bold text-accent group-hover:text-secondary transition-colors">{team.name}</h2>
+                <a href={team.teamPage}><h2 class="text-xl font-bold text-accent group-hover:text-secondary transition-colors hover:underline">{team.name}</h2></a>
                 <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded mt-1 inline-block">{team.league}</span>
               </div>
             </div>
@@ -65,6 +69,9 @@ const teams = [
               <div class="text-text-secondary text-sm">
                 <span class="font-medium text-text-primary">Venue:</span> {team.venue}
               </div>
+              <a href={team.teamPage} class="text-secondary hover:text-secondary/80 text-sm font-medium">
+                Full Schedule →
+              </a>
               <a href={team.sportLink} class="text-secondary hover:text-secondary/80 text-sm font-medium">
                 View Sport →
               </a>

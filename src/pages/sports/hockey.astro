@@ -10,7 +10,8 @@ const teams = [
     venue: "Ball Arena",
     color: "#6F263D",
     description: "3-time Stanley Cup champions (1996, 2001, 2022). One of the premier NHL franchises.",
-    season: "October – June"
+    season: "October – June",
+    teamPage: "/events-tracker/teams/avalanche"
   },
   {
     name: "Colorado College Tigers",
@@ -60,7 +61,7 @@ const teams = [
           <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
-              <h3 class="text-lg font-bold text-accent">{team.name}</h3>
+              <a href={team.teamPage}><h3 class="text-lg font-bold text-accent hover:text-secondary hover:underline transition-colors">{team.name}</h3></a>
               <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">{team.league}</span>
             </div>
             <p class="text-text-secondary text-sm mb-4">{team.description}</p>

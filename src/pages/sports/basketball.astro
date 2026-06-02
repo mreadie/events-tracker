@@ -10,7 +10,8 @@ const teams = [
     venue: "Ball Arena",
     color: "#0E2240",
     description: "2023 NBA Champions led by Nikola Jokić. One of the top franchises in the Western Conference.",
-    season: "October – June"
+    season: "October – June",
+    teamPage: "/events-tracker/teams/nuggets"
   },
   {
     name: "CU Buffaloes Basketball",
@@ -19,7 +20,8 @@ const teams = [
     venue: "CU Events Center",
     color: "#CFB87C",
     description: "University of Colorado Boulder men's and women's basketball programs.",
-    season: "November – March"
+    season: "November – March",
+    teamPage: "/events-tracker/teams/cu-basketball"
   },
   {
     name: "CSU Rams Basketball",
@@ -28,7 +30,8 @@ const teams = [
     venue: "Moby Arena",
     color: "#1E4D2B",
     description: "Colorado State University basketball in the Mountain West Conference.",
-    season: "November – March"
+    season: "November – March",
+    teamPage: "/events-tracker/teams/csu-basketball"
   },
   {
     name: "Air Force Falcons Basketball",
@@ -37,7 +40,8 @@ const teams = [
     venue: "Clune Arena",
     color: "#003087",
     description: "US Air Force Academy basketball program in the Mountain West Conference.",
-    season: "November – March"
+    season: "November – March",
+    teamPage: "/events-tracker/teams/airforce-basketball"
   }
 ];
 ---
@@ -60,7 +64,7 @@ const teams = [
           <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
-              <h3 class="text-xl font-bold text-accent">{team.name}</h3>
+              <a href={team.teamPage}><h3 class="text-xl font-bold text-accent hover:text-secondary hover:underline transition-colors">{team.name}</h3></a>
               <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">{team.league}</span>
             </div>
             <p class="text-text-secondary text-sm mb-4">{team.description}</p>
@@ -81,7 +85,7 @@ const teams = [
           <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
-              <h3 class="text-lg font-bold text-accent">{team.name}</h3>
+              <a href={team.teamPage}><h3 class="text-lg font-bold text-accent hover:text-secondary hover:underline transition-colors">{team.name}</h3></a>
               <span class="text-xs font-semibold bg-surface-light text-text-secondary px-2 py-1 rounded">{team.league}</span>
             </div>
             <p class="text-text-secondary text-sm mb-3">{team.description}</p>

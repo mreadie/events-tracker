@@ -10,7 +10,8 @@ const teams = [
     venue: "Dick's Sporting Goods Park",
     color: "#862633",
     description: "Colorado's Major League Soccer team and 2010 MLS Cup champions.",
-    sportLink: "/events-tracker/sports/soccer"
+    sportLink: "/events-tracker/sports/soccer",
+    teamPage: "/events-tracker/teams/rapids"
   },
   {
     name: "Colorado Mammoth",
@@ -19,7 +20,8 @@ const teams = [
     venue: "Ball Arena",
     color: "#8B0000",
     description: "Colorado's National Lacrosse League team, 3-time NLL champions.",
-    sportLink: "/events-tracker/secondary"
+    sportLink: "/events-tracker/secondary",
+    teamPage: "/events-tracker/secondary"
   },
   {
     name: "CU Buffaloes",
@@ -28,7 +30,8 @@ const teams = [
     venue: "Folsom Field / CU Events Center",
     color: "#CFB87C",
     description: "University of Colorado Boulder — Football, Basketball, and more.",
-    sportLink: "/events-tracker/sports/football"
+    sportLink: "/events-tracker/sports/football",
+    teamPage: "/events-tracker/teams/cu-football"
   },
   {
     name: "CSU Rams",
@@ -37,7 +40,8 @@ const teams = [
     venue: "Canvas Stadium / Moby Arena",
     color: "#1E4D2B",
     description: "Colorado State University — Football, Basketball, and more.",
-    sportLink: "/events-tracker/sports/football"
+    sportLink: "/events-tracker/sports/football",
+    teamPage: "/events-tracker/teams/csu-football"
   },
   {
     name: "Air Force Falcons",
@@ -46,7 +50,8 @@ const teams = [
     venue: "Falcon Stadium / Clune Arena",
     color: "#003087",
     description: "US Air Force Academy — Football, Basketball, Hockey, and more.",
-    sportLink: "/events-tracker/sports/football"
+    sportLink: "/events-tracker/sports/football",
+    teamPage: "/events-tracker/teams/airforce-football"
   }
 ];
 ---
@@ -64,7 +69,7 @@ const teams = [
           <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
           <div class="p-6">
             <div class="mb-4">
-              <h2 class="text-lg font-bold text-accent group-hover:text-secondary transition-colors">{team.name}</h2>
+              <a href={team.teamPage}><h2 class="text-lg font-bold text-accent group-hover:text-secondary transition-colors hover:underline">{team.name}</h2></a>
               <div class="flex gap-2 mt-2">
                 <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">{team.league}</span>
                 <span class="text-xs font-medium bg-surface-light text-text-secondary px-2 py-1 rounded">{team.sport}</span>
