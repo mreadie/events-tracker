@@ -106,18 +106,18 @@ export default function TeamFullSchedule({ teamKey, seasonStartMonth }: TeamFull
   return (
     <div className="space-y-8">
       {/* Record Summary */}
-      <div className="flex items-center gap-4">
-        <div className="bg-[#1a2d4a]/60 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="bg-[#1a2d4a]/60 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-2 sm:px-5 sm:py-3">
           <p className="text-[10px] uppercase text-gray-400 font-medium">Record</p>
-          <p className="text-xl font-bold text-white">{record.wins}-{record.losses}</p>
+          <p className="text-lg sm:text-xl font-bold text-white">{record.wins}-{record.losses}</p>
         </div>
-        <div className="bg-[#1a2d4a]/60 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
+        <div className="bg-[#1a2d4a]/60 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-2 sm:px-5 sm:py-3">
           <p className="text-[10px] uppercase text-gray-400 font-medium">Games Played</p>
-          <p className="text-xl font-bold text-white">{completedGames.length}</p>
+          <p className="text-lg sm:text-xl font-bold text-white">{completedGames.length}</p>
         </div>
-        <div className="bg-[#1a2d4a]/60 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
+        <div className="bg-[#1a2d4a]/60 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-2 sm:px-5 sm:py-3">
           <p className="text-[10px] uppercase text-gray-400 font-medium">Remaining</p>
-          <p className="text-xl font-bold text-white">{upcomingGames.length}</p>
+          <p className="text-lg sm:text-xl font-bold text-white">{upcomingGames.length}</p>
         </div>
       </div>
 

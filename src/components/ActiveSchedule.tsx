@@ -100,7 +100,7 @@ export default function ActiveSchedule() {
     return (
       <div>
         <h2 className="text-lg font-bold text-white mb-3 drop-shadow">Active Seasons</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {[1, 2, 3, 4].map(i => (
             <div key={i} className="rounded-xl border border-white/10 bg-[#1a2d4a]/40 backdrop-blur-md p-4">
               <div className="space-y-2 animate-pulse">
@@ -129,7 +129,7 @@ export default function ActiveSchedule() {
       <h2 className="text-lg font-bold text-white mb-3 drop-shadow">
         Active Seasons <span className="text-sm font-normal text-gray-400">({activeTeams.length} teams)</span>
       </h2>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {activeTeams.map(({ key, config, nextGames, latestScore }) => (
           <div key={key} className="rounded-xl border border-white/10 bg-[#1a2d4a]/40 backdrop-blur-md p-4 hover:border-[#FB4F14]/40 transition-all">
             {/* Header */}
