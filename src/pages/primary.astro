@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const teams = [
+  {
+    name: "Denver Broncos",
+    sport: "NFL Football",
+    league: "NFL",
+    venue: "Empower Field at Mile High",
+    color: "#FB4F14",
+    description: "Denver's NFL franchise and 3-time Super Bowl champions.",
+    sportLink: "/sports/football"
+  },
+  {
+    name: "Denver Nuggets",
+    sport: "NBA Basketball",
+    league: "NBA",
+    venue: "Ball Arena",
+    color: "#0E2240",
+    description: "Denver's NBA team and 2023 NBA Champions.",
+    sportLink: "/sports/basketball"
+  },
+  {
+    name: "Colorado Avalanche",
+    sport: "NHL Hockey",
+    league: "NHL",
+    venue: "Ball Arena",
+    color: "#6F263D",
+    description: "Colorado's NHL team and 3-time Stanley Cup champions.",
+    sportLink: "/sports/hockey"
+  },
+  {
+    name: "Colorado Rockies",
+    sport: "MLB Baseball",
+    league: "MLB",
+    venue: "Coors Field",
+    color: "#333366",
+    description: "Colorado's MLB team playing at the iconic Coors Field.",
+    sportLink: "/sports/baseball"
+  }
+];
+---
+
+<Layout title="Primary Sports - Colorado Sports Events Tracker">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-accent mb-3">Primary Sports Teams</h1>
+      <p class="text-text-secondary text-lg">Colorado's major professional sports franchises.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {teams.map((team) => (
+        <div class="bg-surface-card border border-secondary/20 hover:border-secondary/50 rounded-xl overflow-hidden transition-all group">
+          <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h2 class="text-xl font-bold text-accent group-hover:text-secondary transition-colors">{team.name}</h2>
+                <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded mt-1 inline-block">{team.league}</span>
+              </div>
+            </div>
+            <p class="text-text-secondary text-sm mb-4">{team.description}</p>
+            <div class="flex items-center justify-between">
+              <div class="text-text-secondary text-sm">
+                <span class="font-medium text-text-primary">Venue:</span> {team.venue}
+              </div>
+              <a href={team.sportLink} class="text-secondary hover:text-secondary/80 text-sm font-medium">
+                View Sport →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

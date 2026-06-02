@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const sports = [
+  { name: "Football", icon: "🏈", link: "/sports/football", teams: "Broncos, CU Buffaloes, CSU Rams, Air Force" },
+  { name: "Basketball", icon: "🏀", link: "/sports/basketball", teams: "Nuggets, CU Buffaloes, CSU Rams, Air Force" },
+  { name: "Hockey", icon: "🏒", link: "/sports/hockey", teams: "Avalanche, College Hockey" },
+  { name: "Baseball", icon: "⚾", link: "/sports/baseball", teams: "Rockies, College Baseball" },
+  { name: "Soccer", icon: "⚽", link: "/sports/soccer", teams: "Rapids" },
+  { name: "Lacrosse", icon: "🥍", link: "/sports/lacrosse", teams: "Mammoth" },
+];
+---
+
+<Layout title="Browse by Sport - Colorado Sports Events Tracker">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-accent mb-3">Browse by Sport</h1>
+      <p class="text-text-secondary text-lg">Find all Colorado teams organized by sport.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sports.map((sport) => (
+        <a href={sport.link} class="bg-surface-card border border-secondary/20 hover:border-secondary rounded-xl p-8 transition-all group block">
+          <div class="text-5xl mb-4">{sport.icon}</div>
+          <h2 class="text-xl font-bold text-accent group-hover:text-secondary transition-colors mb-2">{sport.name}</h2>
+          <p class="text-text-secondary text-sm">{sport.teams}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

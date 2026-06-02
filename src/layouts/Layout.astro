@@ -1,0 +1,104 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Colorado Sports Events Tracker" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Track Colorado sports events across all major and minor teams" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-primary border-b border-secondary/20 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-2 text-accent font-bold text-xl">
+            <span class="text-secondary">⚡</span> CO Sports Tracker
+          </a>
+
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex items-center gap-6">
+            <a href="/" class="text-text-primary hover:text-secondary font-medium">Home</a>
+            <a href="/primary" class="text-text-primary hover:text-secondary font-medium">Primary Sports</a>
+            <a href="/secondary" class="text-text-primary hover:text-secondary font-medium">Secondary Sports</a>
+            <a href="/sports" class="text-text-primary hover:text-secondary font-medium">By Sport</a>
+            <a href="/tracker" class="text-secondary hover:text-secondary/80 font-semibold border border-secondary rounded-lg px-3 py-1">My Tracker</a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden text-text-primary hover:text-secondary">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <div class="flex flex-col gap-3">
+            <a href="/" class="text-text-primary hover:text-secondary font-medium">Home</a>
+            <a href="/primary" class="text-text-primary hover:text-secondary font-medium">Primary Sports</a>
+            <a href="/secondary" class="text-text-primary hover:text-secondary font-medium">Secondary Sports</a>
+            <a href="/sports" class="text-text-primary hover:text-secondary font-medium">By Sport</a>
+            <a href="/tracker" class="text-secondary hover:text-secondary/80 font-semibold">My Tracker</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-secondary/20 mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-secondary font-bold text-lg mb-3">CO Sports Tracker</h3>
+            <p class="text-text-secondary text-sm">Your one-stop resource for tracking Colorado sports events across all major and minor teams.</p>
+          </div>
+          <div>
+            <h4 class="text-accent font-semibold mb-3">Quick Links</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/primary" class="text-text-secondary hover:text-secondary">Primary Sports</a></li>
+              <li><a href="/secondary" class="text-text-secondary hover:text-secondary">Secondary Sports</a></li>
+              <li><a href="/sports" class="text-text-secondary hover:text-secondary">Browse by Sport</a></li>
+              <li><a href="/tracker" class="text-text-secondary hover:text-secondary">My Tracker</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-accent font-semibold mb-3">Teams</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/primary" class="text-text-secondary hover:text-secondary">Denver Broncos</a></li>
+              <li><a href="/primary" class="text-text-secondary hover:text-secondary">Denver Nuggets</a></li>
+              <li><a href="/primary" class="text-text-secondary hover:text-secondary">Colorado Avalanche</a></li>
+              <li><a href="/primary" class="text-text-secondary hover:text-secondary">Colorado Rockies</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-secondary/10 mt-8 pt-6 text-center text-text-secondary text-sm">
+          <p>&copy; {new Date().getFullYear()} Colorado Sports Events Tracker. Built with Astro.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      btn?.addEventListener('click', () => {
+        menu?.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>

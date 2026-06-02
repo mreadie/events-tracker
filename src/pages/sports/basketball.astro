@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const teams = [
+  {
+    name: "Denver Nuggets",
+    league: "NBA",
+    level: "Professional",
+    venue: "Ball Arena",
+    color: "#0E2240",
+    description: "2023 NBA Champions led by Nikola Jokić. One of the top franchises in the Western Conference.",
+    season: "October – June"
+  },
+  {
+    name: "CU Buffaloes Basketball",
+    league: "Big 12",
+    level: "NCAA Division I",
+    venue: "CU Events Center",
+    color: "#CFB87C",
+    description: "University of Colorado Boulder men's and women's basketball programs.",
+    season: "November – March"
+  },
+  {
+    name: "CSU Rams Basketball",
+    league: "Mountain West",
+    level: "NCAA Division I",
+    venue: "Moby Arena",
+    color: "#1E4D2B",
+    description: "Colorado State University basketball in the Mountain West Conference.",
+    season: "November – March"
+  },
+  {
+    name: "Air Force Falcons Basketball",
+    league: "Mountain West",
+    level: "NCAA Division I",
+    venue: "Clune Arena",
+    color: "#003087",
+    description: "US Air Force Academy basketball program in the Mountain West Conference.",
+    season: "November – March"
+  }
+];
+---
+
+<Layout title="Basketball - Colorado Sports Events Tracker">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-10">
+      <nav class="text-sm text-text-secondary mb-4">
+        <a href="/sports" class="hover:text-secondary">Sports</a> <span class="mx-2">/</span> <span class="text-accent">Basketball</span>
+      </nav>
+      <h1 class="text-3xl md:text-4xl font-bold text-accent mb-3">🏀 Basketball in Colorado</h1>
+      <p class="text-text-secondary text-lg">NBA champions and top college basketball programs.</p>
+    </div>
+
+    <!-- Professional -->
+    <h2 class="text-xl font-bold text-accent mb-4 border-b border-secondary/20 pb-2">Professional</h2>
+    <div class="grid grid-cols-1 gap-6 mb-10">
+      {teams.filter(t => t.level === "Professional").map((team) => (
+        <div class="bg-surface-card border border-secondary/20 hover:border-secondary/50 rounded-xl overflow-hidden transition-all">
+          <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-xl font-bold text-accent">{team.name}</h3>
+              <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">{team.league}</span>
+            </div>
+            <p class="text-text-secondary text-sm mb-4">{team.description}</p>
+            <div class="flex justify-between text-sm text-text-secondary">
+              <span><span class="font-medium text-text-primary">Venue:</span> {team.venue}</span>
+              <span><span class="font-medium text-text-primary">Season:</span> {team.season}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- College -->
+    <h2 class="text-xl font-bold text-accent mb-4 border-b border-secondary/20 pb-2">College Basketball</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {teams.filter(t => t.level !== "Professional").map((team) => (
+        <div class="bg-surface-card border border-secondary/20 hover:border-secondary/50 rounded-xl overflow-hidden transition-all">
+          <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-lg font-bold text-accent">{team.name}</h3>
+              <span class="text-xs font-semibold bg-surface-light text-text-secondary px-2 py-1 rounded">{team.league}</span>
+            </div>
+            <p class="text-text-secondary text-sm mb-3">{team.description}</p>
+            <div class="text-sm text-text-secondary">
+              <span class="font-medium text-text-primary">Venue:</span> {team.venue}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

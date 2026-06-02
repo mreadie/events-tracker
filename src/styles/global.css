@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #002244;
+  --color-secondary: #FB4F14;
+  --color-accent: #ffffff;
+  --color-surface: #0a1628;
+  --color-surface-light: #132038;
+  --color-surface-card: #1a2d4a;
+  --color-text-primary: #f0f4f8;
+  --color-text-secondary: #94a3b8;
+}
+
+body {
+  @apply bg-surface text-text-primary font-sans;
+}
+
+a {
+  @apply transition-colors duration-200;
+}

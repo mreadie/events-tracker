@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Colorado Sports Events Tracker - Home">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary via-surface to-surface-light py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-accent mb-4">
+        Colorado Sports <span class="text-secondary">Events Tracker</span>
+      </h1>
+      <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+        Your complete guide to tracking games, events, and schedules for every Colorado sports team — from the Broncos to the Buffaloes and everything in between.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/primary" class="bg-secondary hover:bg-secondary/90 text-white font-semibold px-6 py-3 rounded-lg transition-all">
+          Primary Sports
+        </a>
+        <a href="/secondary" class="border border-secondary text-secondary hover:bg-secondary/10 font-semibold px-6 py-3 rounded-lg transition-all">
+          Secondary Sports
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl font-bold text-accent mb-8 text-center">Browse by Category</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <a href="/sports/football" class="bg-surface-card hover:bg-surface-card/80 border border-secondary/20 hover:border-secondary rounded-xl p-4 text-center transition-all">
+        <div class="text-3xl mb-2">🏈</div>
+        <span class="text-text-primary font-medium text-sm">Football</span>
+      </a>
+      <a href="/sports/basketball" class="bg-surface-card hover:bg-surface-card/80 border border-secondary/20 hover:border-secondary rounded-xl p-4 text-center transition-all">
+        <div class="text-3xl mb-2">🏀</div>
+        <span class="text-text-primary font-medium text-sm">Basketball</span>
+      </a>
+      <a href="/sports/hockey" class="bg-surface-card hover:bg-surface-card/80 border border-secondary/20 hover:border-secondary rounded-xl p-4 text-center transition-all">
+        <div class="text-3xl mb-2">🏒</div>
+        <span class="text-text-primary font-medium text-sm">Hockey</span>
+      </a>
+      <a href="/sports/baseball" class="bg-surface-card hover:bg-surface-card/80 border border-secondary/20 hover:border-secondary rounded-xl p-4 text-center transition-all">
+        <div class="text-3xl mb-2">⚾</div>
+        <span class="text-text-primary font-medium text-sm">Baseball</span>
+      </a>
+      <a href="/sports/soccer" class="bg-surface-card hover:bg-surface-card/80 border border-secondary/20 hover:border-secondary rounded-xl p-4 text-center transition-all">
+        <div class="text-3xl mb-2">⚽</div>
+        <span class="text-text-primary font-medium text-sm">Soccer</span>
+      </a>
+      <a href="/sports/lacrosse" class="bg-surface-card hover:bg-surface-card/80 border border-secondary/20 hover:border-secondary rounded-xl p-4 text-center transition-all">
+        <div class="text-3xl mb-2">🥍</div>
+        <span class="text-text-primary font-medium text-sm">Lacrosse</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Next Games Preview -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl font-bold text-accent mb-8">Upcoming Games</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-surface-card border border-secondary/20 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">NFL</span>
+          <span class="text-text-secondary text-sm">TBD</span>
+        </div>
+        <h3 class="text-accent font-bold text-lg">Denver Broncos</h3>
+        <p class="text-text-secondary text-sm mt-1">Next game details coming soon</p>
+      </div>
+      <div class="bg-surface-card border border-secondary/20 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">NBA</span>
+          <span class="text-text-secondary text-sm">TBD</span>
+        </div>
+        <h3 class="text-accent font-bold text-lg">Denver Nuggets</h3>
+        <p class="text-text-secondary text-sm mt-1">Next game details coming soon</p>
+      </div>
+      <div class="bg-surface-card border border-secondary/20 rounded-xl p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">NHL</span>
+          <span class="text-text-secondary text-sm">TBD</span>
+        </div>
+        <h3 class="text-accent font-bold text-lg">Colorado Avalanche</h3>
+        <p class="text-text-secondary text-sm mt-1">Next game details coming soon</p>
+      </div>
+    </div>
+  </section>
+</Layout>

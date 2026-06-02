@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Soccer - Colorado Sports Events Tracker">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-10">
+      <nav class="text-sm text-text-secondary mb-4">
+        <a href="/sports" class="hover:text-secondary">Sports</a> <span class="mx-2">/</span> <span class="text-accent">Soccer</span>
+      </nav>
+      <h1 class="text-3xl md:text-4xl font-bold text-accent mb-3">⚽ Soccer in Colorado</h1>
+      <p class="text-text-secondary text-lg">Major League Soccer in the Mile High City.</p>
+    </div>
+
+    <!-- Colorado Rapids -->
+    <div class="bg-surface-card border border-secondary/20 rounded-xl overflow-hidden">
+      <div class="h-2 w-full" style="background-color: #862633"></div>
+      <div class="p-8">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <h2 class="text-2xl font-bold text-accent">Colorado Rapids</h2>
+            <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded mt-2 inline-block">MLS</span>
+          </div>
+        </div>
+        <p class="text-text-secondary mb-6">
+          The Colorado Rapids are Denver's Major League Soccer team, founded in 1996 as one of the original MLS clubs. 
+          They won the MLS Cup in 2010 and play at Dick's Sporting Goods Park in Commerce City.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="bg-surface-light rounded-lg p-4">
+            <span class="text-text-secondary block mb-1">Venue</span>
+            <span class="text-accent font-medium">Dick's Sporting Goods Park</span>
+          </div>
+          <div class="bg-surface-light rounded-lg p-4">
+            <span class="text-text-secondary block mb-1">Conference</span>
+            <span class="text-accent font-medium">Western Conference</span>
+          </div>
+          <div class="bg-surface-light rounded-lg p-4">
+            <span class="text-text-secondary block mb-1">Season</span>
+            <span class="text-accent font-medium">February – November</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

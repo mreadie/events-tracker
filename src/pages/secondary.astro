@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const teams = [
+  {
+    name: "Colorado Rapids",
+    sport: "MLS Soccer",
+    league: "MLS",
+    venue: "Dick's Sporting Goods Park",
+    color: "#862633",
+    description: "Colorado's Major League Soccer team and 2010 MLS Cup champions.",
+    sportLink: "/sports/soccer"
+  },
+  {
+    name: "Colorado Mammoth",
+    sport: "NLL Lacrosse",
+    league: "NLL",
+    venue: "Ball Arena",
+    color: "#8B0000",
+    description: "Colorado's National Lacrosse League team, 3-time NLL champions.",
+    sportLink: "/sports/lacrosse"
+  },
+  {
+    name: "CU Buffaloes",
+    sport: "NCAA (All Sports)",
+    league: "Big 12",
+    venue: "Folsom Field / CU Events Center",
+    color: "#CFB87C",
+    description: "University of Colorado Boulder — Football, Basketball, and more.",
+    sportLink: "/sports/football"
+  },
+  {
+    name: "CSU Rams",
+    sport: "NCAA (All Sports)",
+    league: "Mountain West",
+    venue: "Canvas Stadium / Moby Arena",
+    color: "#1E4D2B",
+    description: "Colorado State University — Football, Basketball, and more.",
+    sportLink: "/sports/football"
+  },
+  {
+    name: "Air Force Falcons",
+    sport: "NCAA (All Sports)",
+    league: "Mountain West",
+    venue: "Falcon Stadium / Clune Arena",
+    color: "#003087",
+    description: "US Air Force Academy — Football, Basketball, Hockey, and more.",
+    sportLink: "/sports/football"
+  }
+];
+---
+
+<Layout title="Secondary Sports - Colorado Sports Events Tracker">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-accent mb-3">Secondary Sports Teams</h1>
+      <p class="text-text-secondary text-lg">MLS, NLL, and Colorado's top college programs.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {teams.map((team) => (
+        <div class="bg-surface-card border border-secondary/20 hover:border-secondary/50 rounded-xl overflow-hidden transition-all group">
+          <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
+          <div class="p-6">
+            <div class="mb-4">
+              <h2 class="text-lg font-bold text-accent group-hover:text-secondary transition-colors">{team.name}</h2>
+              <div class="flex gap-2 mt-2">
+                <span class="text-xs font-semibold bg-secondary/20 text-secondary px-2 py-1 rounded">{team.league}</span>
+                <span class="text-xs font-medium bg-surface-light text-text-secondary px-2 py-1 rounded">{team.sport}</span>
+              </div>
+            </div>
+            <p class="text-text-secondary text-sm mb-4">{team.description}</p>
+            <div class="flex items-center justify-between">
+              <div class="text-text-secondary text-xs">
+                <span class="font-medium text-text-primary">Venue:</span> {team.venue}
+              </div>
+              <a href={team.sportLink} class="text-secondary hover:text-secondary/80 text-sm font-medium">
+                View Sport →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
