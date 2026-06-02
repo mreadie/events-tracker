@@ -44,13 +44,16 @@ export async function getRedRocksEvents(): Promise<RedRocksEvent[]> {
       })
     })
 
-    // Filter to concerts only, upcoming only, and sort by date
-    const now = new Date()
-    const concerts = events.filter(e => 
-      (e.category.toLowerCase() === 'concert' || 
-       e.category.toLowerCase() === 'concerts') &&
-      new Date(e.date) > now
-    )
+    // Filter to concerts only, upcoming only (today or later), and sort by date
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    const concerts = events
+      .filter(e => 
+        (e.category.toLowerCase() === 'concert' || 
+         e.category.toLowerCase() === 'concerts') &&
+        new Date(e.date) >= today
+      )
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
     return concerts
   } catch (err) {
