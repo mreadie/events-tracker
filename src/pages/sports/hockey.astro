@@ -20,7 +20,8 @@ const teams = [
     venue: "Ed Robson Arena",
     color: "#000000",
     description: "Colorado College's NCAA Division I men's hockey program in the NCHC conference.",
-    season: "October – March"
+    season: "October – March",
+    teamPage: "/events-tracker/teams/cc-hockey"
   },
   {
     name: "DU Pioneers",
@@ -29,7 +30,8 @@ const teams = [
     venue: "Magness Arena",
     color: "#8B2332",
     description: "University of Denver's storied hockey program — 9-time NCAA champions.",
-    season: "October – March"
+    season: "October – March",
+    teamPage: "/events-tracker/teams/du-hockey"
   },
   {
     name: "Air Force Falcons Hockey",
@@ -38,7 +40,8 @@ const teams = [
     venue: "Cadet Ice Arena",
     color: "#003087",
     description: "US Air Force Academy's Division I hockey program.",
-    season: "October – March"
+    season: "October – March",
+    teamPage: "/events-tracker/teams/airforce-hockey"
   }
 ];
 ---
@@ -82,7 +85,11 @@ const teams = [
           <div class="h-2 w-full" style={`background-color: ${team.color}`}></div>
           <div class="p-6">
             <div class="flex items-start justify-between mb-3">
-              <h3 class="text-lg font-bold text-accent">{team.name}</h3>
+              {team.teamPage ? (
+                <a href={team.teamPage}><h3 class="text-lg font-bold text-accent hover:text-secondary hover:underline transition-colors">{team.name}</h3></a>
+              ) : (
+                <h3 class="text-lg font-bold text-accent">{team.name}</h3>
+              )}
               <span class="text-xs font-semibold bg-surface-light text-text-secondary px-2 py-1 rounded">{team.league}</span>
             </div>
             <p class="text-text-secondary text-sm mb-3">{team.description}</p>
@@ -97,7 +104,7 @@ const teams = [
     <!-- Live Schedule -->
     <div class="mt-10">
       <h2 class="text-xl font-bold text-accent mb-2 border-b border-secondary/20 pb-2">Live Schedule</h2>
-      <SportSchedule teamKeys={["avalanche"]} client:load />
+      <SportSchedule teamKeys={["avalanche", "cc_hockey", "du_hockey", "airforce_hockey"]} client:load />
     </div>
   </section>
 </Layout>
