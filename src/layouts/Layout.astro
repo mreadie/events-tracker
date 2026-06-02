@@ -23,17 +23,17 @@ const { title = "Colorado Sports Events Tracker" } = Astro.props;
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-12">
           <!-- Logo -->
-          <a href="/" class="flex items-center gap-2 text-accent font-bold text-lg">
+          <a href="/events-tracker/" class="flex items-center gap-2 text-accent font-bold text-lg">
             <span class="text-secondary">⚡</span> CO Sports Tracker
           </a>
 
           <!-- Desktop Nav -->
           <div class="hidden md:flex items-center gap-5">
-            <a href="/" class="text-text-primary hover:text-secondary font-medium text-sm transition-colors">Home</a>
-            <a href="/primary" class="text-text-primary hover:text-secondary font-medium text-sm transition-colors">Big 4</a>
-            <a href="/secondary" class="text-text-primary hover:text-secondary font-medium text-sm transition-colors">All the Rest</a>
-            <a href="/sports" class="text-text-primary hover:text-secondary font-medium text-sm transition-colors">By Sport</a>
-            <a href="/tracker" class="text-secondary hover:text-secondary/80 font-semibold text-sm border border-secondary rounded-md px-3 py-1 transition-all hover:bg-secondary/10">My Tracker</a>
+            <a href="/events-tracker/" class="text-text-primary hover:text-secondary font-medium text-sm transition-colors">Home</a>
+            <a href="/events-tracker/primary" class="text-text-primary hover:text-secondary font-medium text-sm transition-colors">Big 4</a>
+            <a href="/events-tracker/secondary" class="text-text-primary hover:text-secondary font-medium text-sm transition-colors">All the Rest</a>
+            <a href="/events-tracker/sports" class="text-text-primary hover:text-secondary font-medium text-sm transition-colors">By Sport</a>
+            <a href="/events-tracker/tracker" class="text-secondary hover:text-secondary/80 font-semibold text-sm border border-secondary rounded-md px-3 py-1 transition-all hover:bg-secondary/10">My Tracker</a>
           </div>
 
           <!-- Mobile Menu Button -->
@@ -47,11 +47,11 @@ const { title = "Colorado Sports Events Tracker" } = Astro.props;
         <!-- Mobile Nav -->
         <div id="mobile-menu" class="hidden md:hidden pb-3">
           <div class="flex flex-col gap-2">
-            <a href="/" class="text-text-primary hover:text-secondary font-medium text-sm">Home</a>
-            <a href="/primary" class="text-text-primary hover:text-secondary font-medium text-sm">Big 4</a>
-            <a href="/secondary" class="text-text-primary hover:text-secondary font-medium text-sm">All the Rest</a>
-            <a href="/sports" class="text-text-primary hover:text-secondary font-medium text-sm">By Sport</a>
-            <a href="/tracker" class="text-secondary hover:text-secondary/80 font-semibold text-sm">My Tracker</a>
+            <a href="/events-tracker/" class="text-text-primary hover:text-secondary font-medium text-sm">Home</a>
+            <a href="/events-tracker/primary" class="text-text-primary hover:text-secondary font-medium text-sm">Big 4</a>
+            <a href="/events-tracker/secondary" class="text-text-primary hover:text-secondary font-medium text-sm">All the Rest</a>
+            <a href="/events-tracker/sports" class="text-text-primary hover:text-secondary font-medium text-sm">By Sport</a>
+            <a href="/events-tracker/tracker" class="text-secondary hover:text-secondary/80 font-semibold text-sm">My Tracker</a>
           </div>
         </div>
       </div>
@@ -72,10 +72,10 @@ const { title = "Colorado Sports Events Tracker" } = Astro.props;
             <span class="text-text-secondary text-xs hidden md:inline">Your Colorado sports companion</span>
           </div>
           <div class="flex items-center gap-4 text-xs">
-            <a href="/primary" class="text-text-secondary hover:text-secondary transition-colors">Big 4</a>
-            <a href="/secondary" class="text-text-secondary hover:text-secondary transition-colors">All the Rest</a>
-            <a href="/sports" class="text-text-secondary hover:text-secondary transition-colors">By Sport</a>
-            <a href="/tracker" class="text-text-secondary hover:text-secondary transition-colors">Tracker</a>
+            <a href="/events-tracker/primary" class="text-text-secondary hover:text-secondary transition-colors">Big 4</a>
+            <a href="/events-tracker/secondary" class="text-text-secondary hover:text-secondary transition-colors">All the Rest</a>
+            <a href="/events-tracker/sports" class="text-text-secondary hover:text-secondary transition-colors">By Sport</a>
+            <a href="/events-tracker/tracker" class="text-text-secondary hover:text-secondary transition-colors">Tracker</a>
           </div>
         </div>
         <div class="border-t border-secondary/10 mt-3 pt-3 text-center text-text-secondary text-[11px]">
