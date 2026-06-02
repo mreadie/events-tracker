@@ -4,25 +4,27 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Colorado Sports Events Tracker">
   <!-- Hero Section -->
-  <section class="relative py-8 overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="/events-tracker/images/CoorsFieldSunset.jpg" alt="Coors Field sunset" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/70 to-surface"></div>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold text-accent mb-2 tracking-tight">
-        Colorado Sports <span class="text-secondary">Events Tracker</span>
-      </h1>
-      <p class="text-base text-text-secondary max-w-2xl mx-auto mb-4">
-        Your guide to games, scores, and schedules for every Colorado sports team.
-      </p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <a href="/primary" class="bg-secondary hover:bg-secondary/90 hover:scale-105 text-white font-semibold px-5 py-2 rounded-lg transition-all shadow-lg shadow-secondary/20">
-          Big 4
-        </a>
-        <a href="/secondary" class="border border-secondary text-secondary hover:bg-secondary/10 hover:scale-105 font-semibold px-5 py-2 rounded-lg transition-all">
-          All the Rest
-        </a>
+  <section class="relative overflow-hidden">
+    <div class="relative">
+      <img src="/events-tracker/images/CoorsFieldSunset.jpg" alt="Coors Field sunset" class="w-full h-auto block" />
+      <div class="absolute inset-0 bg-gradient-to-b from-surface/60 via-surface/50 to-surface/80"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="text-center px-4">
+          <h1 class="text-3xl md:text-5xl font-extrabold text-accent mb-2 tracking-tight drop-shadow-lg">
+            Colorado Sports <span class="text-secondary">Events Tracker</span>
+          </h1>
+          <p class="text-base text-text-secondary max-w-2xl mx-auto mb-4 drop-shadow">
+            Your guide to games, scores, and schedules for every Colorado sports team.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="/primary" class="bg-secondary hover:bg-secondary/90 hover:scale-105 text-white font-semibold px-5 py-2 rounded-lg transition-all shadow-lg shadow-secondary/20">
+              Big 4
+            </a>
+            <a href="/secondary" class="border border-secondary text-secondary hover:bg-secondary/10 hover:scale-105 font-semibold px-5 py-2 rounded-lg transition-all">
+              All the Rest
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
