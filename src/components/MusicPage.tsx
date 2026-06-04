@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-import { getRedRocksEvents, type RedRocksEvent } from '../lib/red-rocks'
 import type { VenueEvents, TMEvent } from '../lib/ticketmaster'
 
 interface Venue {
@@ -22,6 +20,7 @@ const VENUES: Venue[] = [
     description: 'Iconic open-air amphitheatre carved between giant red sandstone formations. World-famous acoustics and stunning views.',
     eventsUrl: 'https://www.redrocksonline.com/events/',
     type: 'outdoor',
+    tmVenueId: 'KovZpZAaeIvA',
   },
   {
     name: 'Ball Arena',
@@ -94,67 +93,6 @@ function VenueTypeTag({ type }: { type: Venue['type'] }) {
     <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${colors[type]}`}>
       {type.toUpperCase()}
     </span>
-  )
-}
-
-// ── Red Rocks (client-side RSS) ───────────────────────────────────────────────
-
-function RedRocksSection() {
-  const [concerts, setConcerts] = useState<RedRocksEvent[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    async function load() {
-      try {
-        const data = await getRedRocksEvents()
-        setConcerts(data)
-      } catch (err) {
-        console.error(err)
-      } finally {
-        setLoading(false)
-      }
-    }
-    load()
-  }, [])
-
-  if (loading) {
-    return (
-      <div className="space-y-2 animate-pulse mt-4">
-        {[1, 2, 3, 4, 5].map(i => (
-          <div key={i} className="h-10 bg-white/5 rounded-lg" />
-        ))}
-      </div>
-    )
-  }
-
-  if (concerts.length === 0) {
-    return (
-      <p className="text-gray-400 text-sm mt-4 italic">No upcoming concerts found in feed.</p>
-    )
-  }
-
-  return (
-    <div className="mt-4">
-      <div className="bg-[#1a2d4a]/40 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden">
-        <div className="grid grid-cols-[80px_1fr] sm:grid-cols-[110px_1fr] text-[10px] font-medium text-gray-400 uppercase px-4 py-2 border-b border-white/5">
-          <span>Date</span>
-          <span>Artist / Event</span>
-        </div>
-        {concerts.map((concert, i) => (
-          <div key={i} className="grid grid-cols-[80px_1fr] sm:grid-cols-[110px_1fr] px-4 py-3 border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
-            <span className="text-xs text-gray-300">{formatDate(concert.date)}</span>
-            <div>
-              <a href={concert.link} target="_blank" rel="noopener" className="text-sm text-white hover:text-[#FB4F14] transition-colors font-medium">
-                {concert.title}
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-      <p className="text-gray-500 text-xs mt-3 italic">
-        Live data from <a href="https://www.redrocksonline.com/events/" target="_blank" rel="noopener" className="text-purple-400 hover:underline">redrocksonline.com</a>
-      </p>
-    </div>
   )
 }
 
@@ -238,8 +176,6 @@ function VenueCard({
   tmEvents: TMEvent[]
   hasTMData: boolean
 }) {
-  const isRedRocks = venue.name === 'Red Rocks Amphitheatre'
-
   return (
     <div className="bg-[#1a2d4a]/40 backdrop-blur-md border border-white/10 rounded-xl p-5 hover:border-purple-500/40 transition-all">
       <div className="flex items-start justify-between mb-3">
@@ -254,9 +190,7 @@ function VenueCard({
       </div>
       <p className="text-sm text-gray-300 mb-4">{venue.description}</p>
 
-      {isRedRocks ? (
-        <RedRocksSection />
-      ) : hasTMData ? (
+      {hasTMData ? (
         <TMEventsSection events={tmEvents} eventsUrl={venue.eventsUrl} />
       ) : (
         <NoDataSection eventsUrl={venue.eventsUrl} />
