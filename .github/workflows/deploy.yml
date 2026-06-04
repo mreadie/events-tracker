@@ -38,6 +38,7 @@ jobs:
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          TM_API_KEY: ${{ secrets.TM_API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
