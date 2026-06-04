@@ -42,18 +42,29 @@ async function fetchVenueEvents(venueId: string, apiKey: string): Promise<TMEven
   const data = await res.json()
   const rawEvents = data._embedded?.events ?? []
 
-  return rawEvents
+  const events: TMEvent[] = rawEvents
     .filter((e: any) => !e.name?.startsWith('Club Level Seating'))
     .map((e: any): TMEvent => ({
-    id: e.id,
-    name: e.name,
-    date: e.dates?.start?.localDate ?? '',
-    time: e.dates?.start?.localTime ?? '',
-    url: e.url ?? '',
-    imageUrl: (e.images?.find((img: any) => img.ratio === '16_9' && img.width >= 640) ?? e.images?.[0])?.url ?? '',
-    venue: e._embedded?.venues?.[0]?.name ?? '',
-    venueId,
+      id: e.id,
+      name: e.name,
+      date: e.dates?.start?.localDate ?? '',
+      time: e.dates?.start?.localTime ?? '',
+      url: e.url ?? '',
+      imageUrl: (e.images?.find((img: any) => img.ratio === '16_9' && img.width >= 640) ?? e.images?.[0])?.url ?? '',
+      venue: e._embedded?.venues?.[0]?.name ?? '',
+      venueId,
   }))
+
+  // Deduplicate by (date, time): keep the entry with the longest name
+  const deduped = new Map<string, TMEvent>()
+  for (const event of events) {
+    const key = `${event.date}|${event.time}`
+    const existing = deduped.get(key)
+    if (!existing || event.name.length > existing.name.length) {
+      deduped.set(key, event)
+    }
+  }
+  return Array.from(deduped.values())
 }
 
 export interface VenueEvents {
