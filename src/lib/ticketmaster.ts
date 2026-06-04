@@ -42,7 +42,9 @@ async function fetchVenueEvents(venueId: string, apiKey: string): Promise<TMEven
   const data = await res.json()
   const rawEvents = data._embedded?.events ?? []
 
-  return rawEvents.map((e: any): TMEvent => ({
+  return rawEvents
+    .filter((e: any) => !e.name?.startsWith('Club Level Seating'))
+    .map((e: any): TMEvent => ({
     id: e.id,
     name: e.name,
     date: e.dates?.start?.localDate ?? '',
