@@ -15,6 +15,7 @@ interface TMVenueConfig {
 }
 
 const VENUES: TMVenueConfig[] = [
+  { id: 'KovZpZAaeIvA', name: 'Red Rocks Amphitheatre' },
   { id: 'KovZpZAFaJeA', name: 'Ball Arena' },
   { id: 'KovZpa3Wne',   name: 'Empower Field at Mile High' },
   { id: 'KovZpZAEkakA', name: "Fiddler's Green Amphitheatre" },
